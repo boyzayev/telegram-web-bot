@@ -55,9 +55,10 @@ const App = () => {
     telegram.sendData(JSON.stringify(cartItems));
   }, [cartItems]);
   useEffect(() => {
-    telegram.onEvent("mainButtonCliked", onSendData);
-    return () => telegram.offEvent("mainButtonClicked", onSendData);
-  }, [onSendData]);
+  telegram.onEvent("mainButtonClicked", onSendData);
+  return () => telegram.offEvent("mainButtonClicked", onSendData);
+}, [onSendData]);
+
   return (
     <div className="">
       <h1>Sammi kurslarssss</h1>
