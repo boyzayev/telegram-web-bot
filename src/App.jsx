@@ -60,7 +60,7 @@ const App = () => {
   }, [onSendData]);
   return (
     <div className="">
-      <h1>Sammi kurslar</h1>
+      <h1>Sammi kurslarssss</h1>
       <Cart cartItems={cartItems} onCheckout={onCheckout} />
       <div className="cards__container">
         {courses.map((course) => {
