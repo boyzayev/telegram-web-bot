@@ -3,6 +3,7 @@ import "./App.css";
 import Card from "./components/card/card";
 import Cart from "./components/cart/cart";
 import { getData } from "./constants/db";
+import { useCallback } from "react";
 const courses = getData();
 const telegram = window.Telegram.WebApp;
 
@@ -50,6 +51,13 @@ const App = () => {
     telegram.MainButton.text = "Sotib Olish";
     telegram.MainButton.show();
   };
+  const onSendData = useCallback(()=>{
+    telegram.sendData(JSON.stringify(cartItems))
+  },[cartItems])
+  useEffect(()=>{
+    telegram.onEvent("mainButtonCliked",onSendData)
+    return () => telegram.offEvent('mainButtonClicked',onSendData)
+  },[onSendData])
   return (
     <div className="">
       <h1>Sammi kurslar</h1>
