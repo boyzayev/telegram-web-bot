@@ -51,13 +51,13 @@ const App = () => {
     telegram.MainButton.text = "Sotib Olish";
     telegram.MainButton.show();
   };
-  const onSendData = useCallback(()=>{
-    telegram.sendData(JSON.stringify(cartItems))
-  },[cartItems])
-  useEffect(()=>{
-    telegram.onEvent("mainButtonCliked",onSendData)
-    return () => telegram.offEvent('mainButtonClicked',onSendData)
-  },[onSendData])
+  const onSendData = useCallback(() => {
+    telegram.sendData(JSON.stringify(cartItems));
+  }, [cartItems]);
+  useEffect(() => {
+    telegram.onEvent("mainButtonCliked", onSendData);
+    return () => telegram.offEvent("mainButtonClicked", onSendData);
+  }, [onSendData]);
   return (
     <div className="">
       <h1>Sammi kurslar</h1>
