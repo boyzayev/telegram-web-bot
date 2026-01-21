@@ -52,7 +52,7 @@ const App = () => {
     telegram.MainButton.show();
   };
   const onSendData = useCallback(() => {
-    const queryID = telegram.initDataUnsave?.query_id;
+    const queryID = telegram.initDataUnsafe?.query_id;
     if(queryID){
       fetch("http://localhost:8000/web-data",{
         method: "POST",
