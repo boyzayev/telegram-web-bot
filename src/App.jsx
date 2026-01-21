@@ -57,11 +57,11 @@ const App = () => {
       fetch("http://localhost:8000/web-data",{
         method: "POST",
         headers: {"Content-Type": 'application/json'},
-        body: JSON.stringify(cartItems)
+        body: JSON.stringify({products: cartItems,queryID:queryID})
       })
     }else{
 
-      telegram.sendData(JSON.stringify({products: cartItems,queryID:queryID}));
+      telegram.sendData(JSON.stringify(cartItems));
     }
   }, [cartItems]);
   useEffect(() => {
